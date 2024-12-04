@@ -24,6 +24,8 @@ from utils import response_consts as resconst
 from utils.tictactoe import TicTacToe
 from utils.rock_paper_scissors import RockPaperScissors
 from utils.connect_four import ConnectFour
+# from utils.horoscope import run_horoscope
+from utils.hangman import Hangman
 #For currency
 from forex_python.converter import CurrencyRates
 
@@ -411,6 +413,15 @@ if __name__ == '__main__':
                     print(f"current time in {dispTimezone}: {dispTime}")
                 except pytz.UnknownTimeZoneError:
                     print("Can't find the place, try checking for typos or extra spaces")
+            
+            # horoscope generator
+            elif "horoscope" in command:
+                run_horoscope()
+            
+            # play hangman
+            elif "hangman" in command:
+                game_instance = Hangman()
+                game_instance.run_hangman()
 
             # WEB BASED
             # Open sites in browser
