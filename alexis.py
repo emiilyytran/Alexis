@@ -26,6 +26,8 @@ from utils.rock_paper_scissors import RockPaperScissors
 from utils.connect_four import ConnectFour
 # from utils.horoscope import run_horoscope
 from utils.hangman import Hangman
+from utils.woordle import WoordleGame
+from utils.art import Art
 #For currency
 from forex_python.converter import CurrencyRates
 
@@ -422,6 +424,14 @@ if __name__ == '__main__':
             elif "hangman" in command:
                 game_instance = Hangman()
                 game_instance.run_hangman()
+            
+            elif "woordle" in command:
+                woordle = WoordleGame()
+                woordle.play()
+            
+            elif "art" in command:
+                art = Art()
+                art.make_art()
 
             # WEB BASED
             # Open sites in browser

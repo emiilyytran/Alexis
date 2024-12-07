@@ -15,19 +15,6 @@ class Hangman:
             # Fallback word list
             fallback_words = ['python', 'developer', 'hangman', 'programming', 'challenge']
             return random.choice(fallback_words)
-    
-    def get_word_description(self, word):
-        try:
-            # Query the Dictionary API for the word's definition
-            response = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
-            response.raise_for_status()
-            data = response.json()
-            # Extract the first definition
-            meaning = data[0]['meanings'][0]['definitions'][0]['definition']
-            return meaning
-        except Exception as e:
-            print(f"Could not fetch a description for the word '{word}'. Error: {e}")
-            return "No description available."
 
     def run_hangman(self):
         # Hangman states
@@ -139,7 +126,5 @@ class Hangman:
         print(hangman_stages[len(hangman_stages) - 1 - attempts])
         if '_' not in guessed_word:
             print("\nCongratulations! You guessed the word:", word_to_guess)
-            description = self.get_word_description(word_to_guess)
-            print("\nMeaning:", description)
         else:
             print("\nGame over! The word was:", word_to_guess)
